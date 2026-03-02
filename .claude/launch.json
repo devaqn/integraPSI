@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "serve (static)",
-      "runtimeExecutable": "npx.cmd",
-      "runtimeArgs": ["serve", ".", "--listen", "3000", "--no-clipboard"],
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "npx", "serve", ".", "--listen", "3000", "--no-clipboard"],
       "port": 3000
     },
     {
