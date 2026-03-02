@@ -1042,26 +1042,57 @@ function initButtonLogoAnimation() {
 
 
 /* ============================================================
+   17. WHATSAPP FLOAT — ANIMAÇÃO DE ATENÇÃO
+   Faz o botão flutuante "chacoalhar" para chamar atenção do
+   visitante.
+   — Primeira animação: 2,5s após o carregamento
+   — Repetição automática: a cada 7s
+   — Respeita prefers-reduced-motion para acessibilidade
+   ============================================================ */
+function initWhatsAppFloatAnimation() {
+  const btn = document.querySelector('.whatsapp-float');
+  if (!btn) return;
+
+  /* Usuário prefere movimento reduzido — não anima */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  /* Adiciona a classe, remove automaticamente ao fim da animação */
+  function wiggle() {
+    if (btn.classList.contains('wa-atencao')) return;
+    btn.classList.add('wa-atencao');
+    btn.addEventListener('animationend', () => {
+      btn.classList.remove('wa-atencao');
+    }, { once: true });
+  }
+
+  /* Primeira animação com delay, depois repete a cada 7s */
+  setTimeout(wiggle, 2500);
+  setInterval(wiggle, 7000);
+}
+
+
+/* ============================================================
    INICIALIZAÇÃO PRINCIPAL
    Aguarda o DOM estar completamente carregado antes de inicializar.
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
 
-  initNavbarScroll();      // 1. navbar transparente → verde
-  initMobileMenu();        // 2. menu hambúrguer + drawer
-  initSmoothScroll();      // 3. scroll suave para âncoras
-  initRevealOnScroll();    // 4. animação de entrada ao rolar
-  initAccordion();         // 5. acordeões dos módulos
-  initActiveNavLink();     // 6. link ativo no menu
-  initHeroParallax();      // 7. parallax da foto do hero
-  initWhatsAppCTA();       // 8. botões CTA → WhatsApp
-  initNetlifyForm();       // 9. submit do formulário
-  initBackToTop();         // 10. botão voltar ao topo
-  initCondicoesDots();     // 11. pontos do scroll horizontal mobile
-  initCardTiltEffect();    // 12. efeito tilt 3D nos cards (desktop)
-  initPageLoader();              // 13. tela de loading ao navegar para sede
-  initProfessorCards();          // 14. mural de professores (toque mobile)
-  initModuloCards();             // 15. cards de módulos (toque mobile)
-  initButtonLogoAnimation();     // 16. animação da logo nos botões
+  initNavbarScroll();             // 1.  navbar transparente → verde
+  initMobileMenu();               // 2.  menu hambúrguer + drawer
+  initSmoothScroll();             // 3.  scroll suave para âncoras
+  initRevealOnScroll();           // 4.  animação de entrada ao rolar
+  initAccordion();                // 5.  acordeões dos módulos
+  initActiveNavLink();            // 6.  link ativo no menu
+  initHeroParallax();             // 7.  parallax da foto do hero
+  initWhatsAppCTA();              // 8.  botões CTA → WhatsApp
+  initNetlifyForm();              // 9.  submit do formulário
+  initBackToTop();                // 10. botão voltar ao topo
+  initCondicoesDots();            // 11. pontos do scroll horizontal mobile
+  initCardTiltEffect();           // 12. efeito tilt 3D nos cards (desktop)
+  initPageLoader();               // 13. tela de loading ao navegar para sede
+  initProfessorCards();           // 14. mural de professores (toque mobile)
+  initModuloCards();              // 15. cards de módulos (toque mobile)
+  initButtonLogoAnimation();      // 16. animação da logo nos botões
+  initWhatsAppFloatAnimation();   // 17. chacoalha o botão WhatsApp flutuante
 
 });

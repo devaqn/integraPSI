@@ -51,6 +51,12 @@
   --fonte-script:  'Dancing Script', cursive;             /* subtítulos cursivos */
   --fonte-sans:    'Inter', system-ui, sans-serif;        /* corpo e UI */
 
+  /* === ALIASES DE TIPOGRAFIA (compatibilidade landing + páginas) === */
+  --fonte-titulo:  'Cormorant Garamond', Georgia, serif;  /* = --fonte-serif  */
+  --fonte-cursivo: 'Dancing Script', cursive;             /* = --fonte-script */
+  --fonte-corpo:   'Inter', system-ui, sans-serif;        /* = --fonte-sans   */
+  --fonte-texto:   'Inter', system-ui, sans-serif;        /* = --fonte-sans   */
+
   /* === ESPAÇAMENTOS === */
   --section-gap:   6rem;      /* padding vertical de cada section */
   --container-max: 1200px;    /* largura máxima do conteúdo */
@@ -262,17 +268,17 @@ section {
   transform: translateY(-1px);
 }
 
-/* Botão outline branco — hero sobre imagem escura */
+/* Botão outline creme — hero sobre imagem escura */
 .btn-outline-white {
   background: transparent;
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.8);
+  color: var(--cor-creme, #F2E6DF);
+  border-color: rgba(242, 230, 223, 0.7);
   backdrop-filter: blur(4px);
 }
 .btn-outline-white:hover,
 .btn-outline-white:focus-visible {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: #fff;
+  background: rgba(242, 230, 223, 0.12);
+  border-color: var(--cor-creme, #F2E6DF);
   transform: translateY(-3px);
 }
 
@@ -428,15 +434,42 @@ section {
   animation: loaderBreath 3s ease-in-out infinite;
 }
 
-/* Grupo interno — faz o símbolo girar lentamente em torno do centro (100,100) */
+/* Grupo interno — gira lentamente em torno do centro do símbolo.
+   transform-box: fill-box garante que a origem seja o centro da bbox
+   do próprio grupo, independente do viewBox offset (-10 -10 220 220). */
 .loader-spin-group {
-  transform-origin: 100px 100px;
+  transform-box: fill-box;
+  transform-origin: center center;
   animation: loaderSpin 8s linear infinite;
+}
+
+/* ── Loader com IMAGEM REAL (substitui SVG) ──────────────────
+   Quando .loader-logo é um <div> (não SVG), serve de wrapper
+   que herda o loaderBreath; a <img> interna gira sozinha.     */
+div.loader-logo {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* width/height/filter/animation já herdados de .loader-logo */
+}
+
+/* A imagem dentro do loader — gira lentamente */
+.loader-logo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;   /* logo inteira, sem corte */
+  display: block;
+  animation: loaderSpin 12s linear infinite;
+  transform-origin: center center;
 }
 
 /* Anel externo decorativo — pulsa sem girar */
 .loader-ring-pulse {
-  transform-origin: 100px 100px;
+  transform-box: fill-box;
+  transform-origin: center center;
   animation: loaderRingPulse 3s ease-in-out infinite;
 }
 
@@ -578,9 +611,9 @@ section {
     box-shadow var(--transition);
 }
 
-/* Estado scrolled: fundo verde + sombra + padding menor */
+/* Estado scrolled: fundo terracota + sombra + padding menor */
 #navbar.scrolled {
-  background: var(--cor-verde);
+  background: var(--cor-terracota);
   padding: 0.85rem 0;
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
 }
@@ -603,6 +636,14 @@ section {
 }
 .navbar-logo:hover {
   opacity: 0.85;
+}
+
+/* Imagem real do logo (substitui SVG simplificado) */
+.logo-mark {
+  border-radius: 50%;
+  object-fit: contain;   /* contain = logo inteira, sem cortes */
+  display: block;
+  flex-shrink: 0;
 }
 
 /* Texto ao lado do ícone SVG */
@@ -740,7 +781,7 @@ section {
   right: 0;
   width: min(80vw, 320px);   /* 80% da largura, máximo 320px */
   height: 100dvh;            /* altura dinâmica — cobre a URL bar no mobile */
-  background: var(--cor-verde);
+  background: var(--cor-terracota);
   z-index: 1002;  /* acima do overlay (1001) e da navbar (1000) */
   transform: translateX(100%);   /* começa fora da tela */
 
@@ -837,7 +878,7 @@ section {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--cor-verde);
+  background: var(--cor-terracota);
   color: var(--cor-creme);
   border: none;
   cursor: pointer;
@@ -936,14 +977,14 @@ section {
 }
 .hero-title em {
   font-style: italic;
-  color: var(--cor-lima);
+  color: var(--cor-creme);
 }
 
 /* Subtítulo cursivo */
 .hero-subtitle {
   font-family: var(--fonte-script);
   font-size: clamp(1.3rem, 3vw, 1.9rem);
-  color: var(--cor-lima);
+  color: rgba(242, 230, 223, 0.82);
   animation: fadeInUp 0.9s ease 0.4s both;
   letter-spacing: 0.02em;
 }
@@ -1205,125 +1246,7 @@ section {
   background: linear-gradient(90deg, transparent, rgba(242,230,223,0.6), transparent);
 }
 
-/* Grid de cards 3 colunas */
-.abordagens-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-/* Card de abordagem */
-.abordagem-card {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(242, 230, 223, 0.12);
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  transition:
-    transform var(--transition),
-    box-shadow var(--transition),
-    background-color var(--transition);
-  cursor: default;
-  position: relative;
-}
-.abordagem-card::before {
-  /* brilho lateral que aparece no hover */
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.06),
-    transparent
-  );
-  transition: left 0.5s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-.abordagem-card:hover::before {
-  left: 150%;
-}
-.abordagem-card:hover {
-  background: rgba(0, 0, 0, 0.35);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-}
-
-/* Foto no topo do card */
-.abordagem-foto {
-  position: relative;
-  height: 210px;
-  overflow: hidden;
-}
-.abordagem-foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  transition: transform 0.5s ease;
-  filter: saturate(0.85);
-}
-.abordagem-card:hover .abordagem-foto img {
-  transform: scale(1.07);
-  filter: saturate(1);
-}
-
-/* Overlay sobre a foto */
-.abordagem-foto::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(140, 50, 17, 0.2) 0%,
-    rgba(140, 50, 17, 0.55) 100%
-  );
-}
-
-/* Placeholder quando não há foto real */
-.abordagem-placeholder {
-  height: 210px;
-  background: rgba(178, 151, 132, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  color: rgba(242, 230, 223, 0.4);
-}
-
-/* Conteúdo textual do card */
-.abordagem-body {
-  padding: 1.5rem;
-}
-
-/* Label de escola (ex: "Abordagem Freudiana") */
-.abordagem-escola {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--cor-lima);
-  font-style: italic;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-/* Nome do pensador */
-.abordagem-body h3 {
-  font-family: var(--fonte-serif);
-  color: var(--cor-creme);
-  font-size: 1.3rem;
-  margin-bottom: 0.75rem;
-}
-
-/* Descrição */
-.abordagem-body p {
-  font-size: 0.88rem;
-  color: rgba(242, 230, 223, 0.82);
-  line-height: 1.7;
-}
+/* Seção "Abordagens" removida do site — CSS removido junto */
 
 
 /* ============================================================
@@ -1336,17 +1259,51 @@ section {
 
 /* Cabeçalho da seção de módulos */
 .modulos-header {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
   margin-bottom: 3.5rem;
 }
+/* Coluna de texto do header */
+.modulos-header-texto {
+  flex: 1;
+}
 .modulos-header h2 {
-  color: var(--cor-texto);         /* texto escuro sobre fundo claro */
+  color: var(--cor-texto);
   margin-bottom: 0.75rem;
 }
 .modulos-header p {
-  color: rgba(44, 26, 14, 0.6);   /* tom suave do texto principal */
-  max-width: 600px;
-  margin: 0 auto;
+  color: rgba(44, 26, 14, 0.6);
+}
+/* Foto do livro ao lado do título */
+.modulos-header-img {
+  flex: 0 0 220px;
+  margin: 0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+.modulos-header-img img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+/* Mobile: volta ao empilhado */
+@media (max-width: 640px) {
+  .modulos-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .modulos-header-img {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 320px;
+  }
+  .modulos-header-img img {
+    height: 200px;
+  }
 }
 
 /* Wrapper dos acordeões */
@@ -1603,7 +1560,7 @@ section {
 
 /* Card da coluna creme: mais contraste para não parecer flutuando */
 .condicao-col--iniciantes .condicao-card {
-  background: #ffffff;
+  background: var(--cor-branco);
   border: 1px solid rgba(86, 96, 67, 0.14);
   box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 6px 22px rgba(86, 96, 67, 0.1);
 }
@@ -2227,28 +2184,6 @@ footer {
   gap: 0.75rem;
 }
 
-/* Placeholder de foto */
-.placeholder-foto {
-  height: 200px;
-  background: var(--cor-areia);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  color: var(--cor-verde);
-  border-radius: 8px;
-  border: 2px dashed var(--cor-verde);
-  font-size: 0.8rem;
-  font-style: italic;
-  text-align: center;
-  padding: 1rem;
-}
-.placeholder-foto::before {
-  content: '📷';
-  font-size: 1.75rem;
-}
-
 /* Galeria de fotos */
 .sede-galeria {
   background: var(--cor-branco);
@@ -2727,11 +2662,6 @@ footer {
     gap: 2rem;
   }
 
-  /* Abordagens: 2 colunas no tablet */
-  .abordagens-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   /* Grade curricular: pilares 2 colunas */
   .pilares-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2835,11 +2765,6 @@ footer {
     font-size: 0.65rem;
     padding: 0.42rem 0.65rem;
     min-height: 2.25rem;   /* ≈ 36px — acima do mínimo recomendado para toque */
-  }
-
-  /* ── Abordagens mobile ── */
-  .abordagens-grid {
-    grid-template-columns: 1fr;
   }
 
   /* ── Turmas mobile ── */
@@ -3145,7 +3070,6 @@ footer {
 .hero-bg,
 .hero-content,
 .prof-overlay,
-.abordagem-card,
 .turma-card,
 .diferencial-card,
 .unidade-card-destaque,
@@ -3206,17 +3130,6 @@ footer {
 .turma-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 48px rgba(86, 96, 67, 0.15);
-}
-
-/* === Cards de abordagem — shimmer + lift mais suave === */
-.abordagem-card {
-  transition:
-    transform var(--transition-silk),
-    box-shadow var(--transition-silk);
-}
-.abordagem-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 /* === Botão back-to-top — micro-animação de pulso === */
@@ -3629,8 +3542,8 @@ img[loading="lazy"]:not([src]) {
   cursor: pointer;
   outline: none;
   background: var(--cor-branco);                 /* fundo off-white */
-  border: 1px solid rgba(86, 96, 67, 0.12);      /* borda sutil */
-  border-top: 3px solid var(--cor-verde);        /* faixa verde decorativa no topo */
+  border: 1px solid rgba(140, 50, 17, 0.10);     /* borda sutil terracota */
+  border-top: 3px solid var(--cor-terracota);    /* faixa terracota decorativa no topo */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
   transition:
     transform    var(--transition),
@@ -3643,8 +3556,8 @@ img[loading="lazy"]:not([src]) {
 .modulo-card.expanded {
   transform: translateY(-6px);
   box-shadow: 0 20px 56px rgba(0, 0, 0, 0.13), 0 4px 16px rgba(0, 0, 0, 0.07);
-  border-color: var(--cor-verde);
-  border-top-color: var(--cor-terracota);        /* acento terracota no hover */
+  border-color: var(--cor-terracota);             /* reforço terracota no hover */
+  border-top-color: var(--cor-terracota);
 }
 
 /* Foco por teclado */
@@ -3667,7 +3580,7 @@ img[loading="lazy"]:not([src]) {
   font-family: var(--fonte-serif);
   font-size: 8rem;
   font-weight: 700;
-  color: rgba(86, 96, 67, 0.05);    /* verde bem suave sobre fundo branco */
+  color: rgba(140, 50, 17, 0.05);   /* terracota bem suave sobre fundo branco */
   line-height: 1;
   user-select: none;
   letter-spacing: -0.02em;
@@ -3699,12 +3612,12 @@ img[loading="lazy"]:not([src]) {
   margin-bottom: 1rem;
 }
 
-/* Título visível na base do card — texto escuro sobre branco */
+/* Título visível na base do card — terracota sobre branco */
 .modulo-card-titulo {
   font-family: var(--fonte-serif);
   font-size: 1.28rem;
   font-weight: 600;
-  color: var(--cor-texto);          /* texto escuro, legível no fundo claro */
+  color: var(--cor-terracota);      /* terracota: elegante sobre fundo branco */
   line-height: 1.3;
   margin-bottom: 0.9rem;
 }
@@ -3736,7 +3649,7 @@ img[loading="lazy"]:not([src]) {
   content: '–';
   position: absolute;
   left: 0;
-  color: var(--cor-verde);          /* verde no marcador */
+  color: var(--cor-terracota);      /* terracota no marcador */
   font-size: 0.7rem;
   top: 0.05em;
 }
@@ -3756,7 +3669,7 @@ img[loading="lazy"]:not([src]) {
 /* Texto de dica de interação */
 .modulo-hint {
   font-size: 0.65rem;
-  color: var(--cor-verde);
+  color: var(--cor-terracota);
   opacity: 0.7;
   display: flex;
   align-items: center;
@@ -3771,8 +3684,8 @@ img[loading="lazy"]:not([src]) {
 .modulo-overlay {
   position: absolute;
   inset: 0;
-  /* gradiente elegante escuro — verde-profundo para terracota-escuro */
-  background: linear-gradient(160deg, #1d2614 0%, #3a1708 100%);
+  /* fundo terracota com gradiente sutil em profundidade */
+  background: linear-gradient(160deg, #8C3211 0%, #6b2509 100%);
   opacity: 0;
   transform: translateY(10px);
   pointer-events: none;
@@ -4173,6 +4086,321 @@ img[loading="lazy"]:not([src]) {
     gap: 1rem;
   }
 }
+
+/* ============================================================
+   HERO SEM FOTO — unidades ainda sem imagem (Caruaru, CG, JP)
+   Fundo gradiente verde elegante em lugar da foto
+   ============================================================ */
+.sede-hero-bg--sem-foto {
+  background-image: linear-gradient(160deg, #3a4a2e 0%, #566043 50%, #2e3a22 100%);
+}
+
+/* Adiciona textura sutil com padrão de pontos */
+.sede-hero-bg--sem-foto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(242, 230, 223, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+
+/* ============================================================
+   5º BLOCO — PRÓXIMA CIDADE (card de votação do Google Forms)
+   Faixa horizontal com fundo verde escuro + borda lima
+   ============================================================ */
+.unidade-proxima {
+  margin-top: 2rem;
+  border-radius: 14px;
+  background: linear-gradient(120deg, #2e3a22 0%, #3d4e2d 60%, #2a3120 100%);
+  border: 1px solid rgba(168, 198, 64, 0.25);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Brilho decorativo sutil no canto superior */
+.unidade-proxima::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(168,198,64,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Layout interno: ícone | texto | botão */
+.unidade-proxima-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+}
+
+/* Ícone de bússola grande */
+.unidade-proxima-icon {
+  flex-shrink: 0;
+  width: 64px; height: 64px;
+  background: rgba(168, 198, 64, 0.12);
+  border: 1px solid rgba(168, 198, 64, 0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  color: var(--cor-lima);
+  overflow: hidden; /* garante que o SVG não vaze */
+}
+
+/* Bússola SVG — preenche o ícone sem recortar o anel externo */
+.site-compass-svg {
+  width: 52px;
+  height: 52px;
+}
+
+/* Agulha oscilante — mesma animação amortecida da landing page */
+.site-compass-needle {
+  transform-box: fill-box;
+  transform-origin: center center;
+  animation: site-busca-norte 2.8s ease-in-out infinite;
+}
+
+@keyframes site-busca-norte {
+  0%   { transform: rotate(-38deg); }
+  16%  { transform: rotate(36deg);  }
+  30%  { transform: rotate(-26deg); }
+  43%  { transform: rotate(20deg);  }
+  55%  { transform: rotate(-14deg); }
+  65%  { transform: rotate(9deg);   }
+  74%  { transform: rotate(-5deg);  }
+  82%  { transform: rotate(3deg);   }
+  89%  { transform: rotate(-2deg);  }
+  95%  { transform: rotate(1deg);   }
+  100% { transform: rotate(-38deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-compass-needle { animation: none; transform: rotate(0deg); }
+}
+
+/* Texto central — cresce */
+.unidade-proxima-texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.unidade-proxima-eyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cor-lima);
+  margin-bottom: 0.45rem;
+}
+
+.unidade-proxima-texto h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--cor-creme);
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+}
+
+.unidade-proxima-texto p {
+  font-size: 0.88rem;
+  color: rgba(242, 230, 223, 0.72);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.unidade-proxima-texto p strong {
+  color: var(--cor-creme);
+}
+
+/* CTA — botão */
+.unidade-proxima-cta {
+  flex-shrink: 0;
+}
+
+/* Botão específico do bloco próxima cidade */
+.btn-proxima {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--cor-lima);
+  color: #1a2210;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(168, 198, 64, 0.28);
+}
+
+.btn-proxima:hover {
+  background: #bcd94a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168, 198, 64, 0.4);
+}
+
+/* Responsividade do bloco próxima cidade */
+@media (max-width: 860px) {
+  .unidade-proxima-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem 1.5rem;
+    gap: 1.25rem;
+  }
+  .unidade-proxima-cta {
+    width: 100%;
+  }
+  .btn-proxima {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ============================================================
+   BOTÃO FLUTUANTE DE WHATSAPP
+   Bolha verde fixa no canto inferior direito, responsiva
+   ============================================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 9000;
+
+  /* Dimensões */
+  width: 56px; height: 56px;
+  border-radius: 50%;
+
+  /* Visual */
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0,0,0,0.18);
+
+  /* Layout interno */
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.55rem;
+
+  /* Texto expandido (tooltip lateral) */
+  overflow: hidden;
+  text-decoration: none;
+
+  transition: width 0.28s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.22s,
+              background 0.2s;
+}
+
+/* Pulso de atenção ao carregar */
+.whatsapp-float::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.55);
+  animation: wpp-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes wpp-pulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  70%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* Ícone sempre visível */
+.whatsapp-float i {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  margin-left: 0; /* centralize quando só ícone */
+  transition: margin 0.28s;
+}
+
+/* Label expandida — oculta por padrão */
+.whatsapp-float-label {
+  font-family: var(--fonte-corpo);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  /* flex: 0 0 0 + min-width: 0 garante que o label ocupe 0px real no flex
+     (só max-width:0 não é suficiente — o offsetWidth ainda vaza para ~34px
+     e empurra o ícone para fora do centro do botão) */
+  flex: 0 0 0px;
+  min-width: 0;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: flex-basis 0.28s, max-width 0.28s, opacity 0.22s, margin 0.28s;
+  margin-left: 0;
+}
+
+/* Hover: expande com label */
+.whatsapp-float:hover {
+  width: auto;
+  padding: 0 1.25rem;
+  border-radius: 28px;
+  background: #1da851;
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+}
+
+.whatsapp-float:hover i {
+  margin-right: 0.45rem;
+}
+
+.whatsapp-float:hover .whatsapp-float-label {
+  flex: 0 0 auto;   /* permite crescer no hover */
+  max-width: 160px;
+  opacity: 1;
+  margin-left: 0;
+}
+
+/* Mobile: mantém só ícone sem expansão */
+@media (max-width: 600px) {
+  .whatsapp-float {
+    width: 52px; height: 52px;
+    bottom: 1.25rem; right: 1.25rem;
+    font-size: 1.4rem;
+  }
+  .whatsapp-float:hover {
+    width: 52px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  .whatsapp-float:hover .whatsapp-float-label {
+    display: none;
+  }
+  .whatsapp-float:hover i {
+    margin-right: 0;
+  }
+}
+
+
+/* Animação de atenção — chacoalha suavemente para chamar o visitante */
+@keyframes wa-wiggle {
+  0%         { transform: rotate(0deg)   scale(1);    }
+  8%         { transform: rotate(-18deg) scale(1.08); }
+  20%        { transform: rotate(16deg)  scale(1.08); }
+  32%        { transform: rotate(-13deg) scale(1.05); }
+  44%        { transform: rotate(10deg)  scale(1.03); }
+  54%        { transform: rotate(-7deg)  scale(1.02); }
+  63%        { transform: rotate(5deg)   scale(1.01); }
+  71%        { transform: rotate(-3deg)  scale(1);    }
+  79%        { transform: rotate(2deg)   scale(1);    }
+  86%        { transform: rotate(-1deg)  scale(1);    }
+  92%        { transform: rotate(0.5deg) scale(1);    }
+  100%       { transform: rotate(0deg)   scale(1);    }
+}
+
+.whatsapp-float.wa-atencao {
+  animation: wa-wiggle 0.9s ease-in-out;
+}
+
 
 /* ── Modulo card — comportamento de toque (mobile/tablet) ── */
 @media (hover: none) {

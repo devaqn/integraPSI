@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ── Charset e viewport ────────────────────────────────── -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO ───────────────────────────────────────────────── -->
+  <title>Ensino EAD — Integra Psicanálise | Em breve</title>
+  <meta name="description" content="A Integra Psicanálise está preparando sua modalidade de ensino a distância. Em breve você poderá se formar em psicanálise de qualquer lugar do Brasil.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://integrapsicanalise.com/ead.html">
+
+  <!-- ── Open Graph ────────────────────────────────────────── -->
+  <meta property="og:title" content="Ensino EAD — Integra Psicanálise">
+  <meta property="og:description" content="Em breve: formação em psicanálise a distância. Seja um dos primeiros a saber.">
+  <meta property="og:image" content="imagens/img-fachada-recife.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://integrapsicanalise.com/ead.html">
+
+  <!-- ── Favicon ──────────────────────────────────────────── -->
+  <link rel="icon" type="image/jpeg" href="imagens/logo-nav-terracota.jpg">
+  <link rel="apple-touch-icon" href="imagens/logo-nav-terracota.jpg">
+  <meta name="theme-color" content="#8C3211">
+
+  <!-- ── Google Fonts ─────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ── Font Awesome 6 ────────────────────────────────────── -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ── CSS global ───────────────────────────────────────── -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- ── Estilos específicos desta página ─────────────────── -->
+  <style>
+    /* === HERO EAD ========================================== */
+    .ead-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cor-creme, #F2E6DF);
+      padding: 8rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decoração de fundo: círculos tênues concêntricos */
+    .ead-hero::before {
+      content: '';
+      position: absolute;
+      width: min(600px, 90vw);
+      height: min(600px, 90vw);
+      border-radius: 50%;
+      border: 1px solid rgba(140, 50, 17, 0.08);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .ead-hero::after {
+      content: '';
+      position: absolute;
+      width: min(900px, 135vw);
+      height: min(900px, 135vw);
+      border-radius: 50%;
+      border: 1px solid rgba(140, 50, 17, 0.04);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .ead-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* ── Logo selo: contain = logo inteira, sem cortes ─── */
+    .ead-logo-mark {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: contain;        /* sem corte — logo inteira */
+      background-color: #8C3211;  /* fundo terracota preenche o círculo */
+      margin: 0 auto 2rem;
+      display: block;
+      /* Animação suave de entrada */
+      animation: eadLogoEntrada 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    @keyframes eadLogoEntrada {
+      from { opacity: 0; transform: scale(0.7) rotate(-8deg); }
+      to   { opacity: 1; transform: scale(1)   rotate(0deg);  }
+    }
+
+    /* Badge "Em breve" */
+    .ead-badge {
+      display: inline-block;
+      background: rgba(140, 50, 17, 0.1);
+      color: var(--cor-terracota, #8C3211);
+      font-family: var(--fonte-sans, 'Inter', sans-serif);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.38rem 1.1rem;
+      border-radius: 50px;
+      margin-bottom: 1.75rem;
+      /* Animação */
+      animation: eadFadeUp 0.7s 0.3s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    /* Título principal */
+    .ead-titulo {
+      font-family: var(--fonte-serif, 'Cormorant Garamond', serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--cor-terracota, #8C3211);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      animation: eadFadeUp 0.7s 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    /* Subtítulo em cursivo */
+    .ead-sub {
+      font-family: var(--fonte-script, 'Dancing Script', cursive);
+      font-size: clamp(1.25rem, 2.8vw, 1.7rem);
+      color: var(--cor-verde, #566043);
+      margin-bottom: 2rem;
+      opacity: 0.85;
+      animation: eadFadeUp 0.7s 0.58s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    /* Divisor ornamental */
+    .ead-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--cor-terracota, #8C3211);
+      margin: 0 auto 2rem;
+      opacity: 0.3;
+      border-radius: 2px;
+      animation: eadFadeUp 0.7s 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    /* Texto descritivo */
+    .ead-desc {
+      font-family: var(--fonte-sans, 'Inter', sans-serif);
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: var(--cor-texto, #2C1A0E);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      opacity: 0.8;
+      animation: eadFadeUp 0.7s 0.72s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    /* Caixa "Enquanto isso" */
+    .ead-enquanto {
+      background: #fff;
+      border: 1px solid rgba(140, 50, 17, 0.12);
+      border-top: 3px solid var(--cor-terracota, #8C3211);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+      animation: eadFadeUp 0.7s 0.82s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    .ead-enquanto h3 {
+      font-family: var(--fonte-serif, 'Cormorant Garamond', serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cor-terracota, #8C3211);
+      margin-bottom: 1rem;
+    }
+
+    .ead-enquanto ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .ead-enquanto ul li {
+      font-family: var(--fonte-sans, 'Inter', sans-serif);
+      font-size: 0.92rem;
+      color: var(--cor-texto, #2C1A0E);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      line-height: 1.55;
+    }
+
+    .ead-enquanto ul li i {
+      color: var(--cor-terracota, #8C3211);
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    /* Botões CTA */
+    .ead-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      animation: eadFadeUp 0.7s 0.92s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    /* Link "Voltar ao site" */
+    .ead-voltar {
+      margin-top: 2.5rem;
+      font-family: var(--fonte-sans, 'Inter', sans-serif);
+      font-size: 0.85rem;
+      color: var(--cor-texto, #2C1A0E);
+      opacity: 0.5;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: opacity 0.2s;
+      animation: eadFadeUp 0.7s 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+    .ead-voltar:hover { opacity: 0.85; }
+
+    /* ── Keyframe compartilhado: fade + sobe ─────────────── */
+    @keyframes eadFadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    /* ── Navbar: sempre sólida nesta página ─────────────
+       No site principal a navbar começa transparente porque
+       o hero tem fundo escuro. Aqui o hero é creme claro,
+       então forçamos o estado "scrolled" desde o início.
+    ───────────────────────────────────────────────────── */
+    #navbar {
+      background: var(--cor-terracota, #8C3211);
+      padding: 0.85rem 0;
+      box-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ─────────────────────────────────────────────────────
+       RESPONSIVIDADE
+    ───────────────────────────────────────────────────── */
+
+    /* Tablet (≤ 768px) */
+    @media (max-width: 768px) {
+      .ead-hero         { padding: 7.5rem 1.75rem 4.5rem; }
+      .ead-logo-mark    { width: 88px; height: 88px; }
+      .ead-enquanto     { padding: 1.75rem 2rem; }
+    }
+
+    /* Mobile grande (≤ 580px) */
+    @media (max-width: 580px) {
+      .ead-hero         { padding: 7rem 1.25rem 4rem; min-height: auto; }
+      .ead-logo-mark    { width: 76px; height: 76px; margin-bottom: 1.5rem; }
+      .ead-enquanto     { padding: 1.4rem 1.25rem; }
+      .ead-btns         { flex-direction: column; align-items: stretch; }
+      .ead-btns .btn    { width: 100%; text-align: center; justify-content: center; }
+    }
+
+    /* Mobile pequeno (≤ 380px) */
+    @media (max-width: 380px) {
+      .ead-hero         { padding: 6.5rem 1rem 3.5rem; }
+      .ead-logo-mark    { width: 64px; height: 64px; }
+      .ead-titulo       { font-size: 2rem; }
+      .ead-sub          { font-size: 1.15rem; }
+      .ead-enquanto     { padding: 1.2rem 1rem; }
+      .ead-enquanto h3  { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       TELA DE LOADING
+       ============================================================ -->
+  <div id="page-loader" class="visible" aria-label="Carregando..." role="status">
+    <div class="loader-inner">
+      <svg class="loader-logo" viewBox="-10 -10 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="loader-spin-group">
+          <path d="M 44 108 A 58 58 0 1 1 156 108" stroke="#F2E6DF" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+          <path d="M 100 42 Q 128 42 128 64 Q 128 86 100 86 Q 81 86 81 70 Q 81 56 95 55" stroke="#F2E6DF" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <circle cx="100" cy="44" r="5" fill="#F2E6DF"/>
+          <circle cx="100" cy="114" r="22" stroke="#F2E6DF" stroke-width="4" fill="none"/>
+          <circle cx="100" cy="114" r="9"  stroke="#F2E6DF" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="114" r="4"  fill="#A8C640"/>
+          <circle cx="100" cy="20"  r="4"  fill="#F2E6DF" opacity="0.7"/>
+          <circle cx="160" cy="100" r="4"  fill="#F2E6DF" opacity="0.7"/>
+          <circle cx="100" cy="180" r="4.5" fill="#F2E6DF" opacity="0.7"/>
+        </g>
+      </svg>
+      <p class="loader-texto">Integra Psicanálise</p>
+      <span class="loader-subtexto">A Nova Escola</span>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Overlay do menu mobile -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       DRAWER MOBILE
+       ============================================================ -->
+  <nav class="menu-drawer" id="menu-drawer" aria-label="Menu mobile" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <a href="index.html" class="navbar-logo" aria-label="Voltar à página inicial">
+        <img src="imagens/logo-nav-verde.jpg" class="logo-mark" alt="" aria-hidden="true" width="36" height="36" loading="eager">
+        <div class="logo-text">
+          <span class="logo-nome">Integra</span>
+        </div>
+      </a>
+      <button class="drawer-close" id="drawer-close" aria-label="Fechar menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-nav" role="navigation">
+      <a href="index.html#inicio"    class="drawer-link">Home</a>
+      <a href="index.html#sobre"     class="drawer-link">Sobre</a>
+      <a href="index.html#modulos"   class="drawer-link">Módulos</a>
+      <a href="index.html#condicoes" class="drawer-link">Condições</a>
+      <a href="index.html#unidades"  class="drawer-link">Unidades</a>
+      <a href="index.html#contato"   class="drawer-link">Contato</a>
+      <a href="ead.html"             class="drawer-link active">Ensino EAD</a>
+    </div>
+
+    <div class="drawer-cta">
+      <a href="https://api.whatsapp.com/send/?phone=5581985761616&text&type=phone_number&app_absent=0"
+         class="btn btn-primary btn-whatsapp"
+         target="_blank"
+         rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        Eu quero ser Integra
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <header id="navbar" role="banner">
+    <div class="container">
+      <div class="navbar-inner">
+
+        <a href="index.html" class="navbar-logo" aria-label="Integra Psicanálise — Início">
+          <img src="imagens/logo-nav-terracota.jpg" class="logo-mark" alt="" aria-hidden="true" width="44" height="44" loading="eager">
+          <div class="logo-text">
+            <span class="logo-nome">Integra Psicanálise</span>
+            <span class="logo-subtitulo">A Nova Escola</span>
+          </div>
+        </a>
+
+        <nav class="navbar-nav" aria-label="Menu principal">
+          <a href="index.html#inicio"    class="nav-link">Home</a>
+          <a href="index.html#sobre"     class="nav-link">Sobre</a>
+          <a href="index.html#modulos"   class="nav-link">Módulos</a>
+          <a href="index.html#condicoes" class="nav-link">Condições</a>
+          <a href="index.html#unidades"  class="nav-link">Unidades</a>
+          <a href="index.html#contato"   class="nav-link">Contato</a>
+          <a href="ead.html"             class="nav-link active">Ensino EAD</a>
+        </nav>
+
+        <a href="https://api.whatsapp.com/send/?phone=5581985761616&text&type=phone_number&app_absent=0"
+           class="btn btn-primary navbar-cta btn-whatsapp"
+           target="_blank"
+           rel="noopener noreferrer">
+          EU QUERO SER INTEGRA ✓
+        </a>
+
+        <button class="hamburger"
+                id="hamburger"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="menu-drawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL — EAD EM BREVE
+       ============================================================ -->
+  <main id="main-content">
+    <section class="ead-hero">
+      <div class="ead-hero-inner">
+
+        <!-- Logo selo -->
+        <img src="imagens/logo-nav-terracota.jpg"
+             class="ead-logo-mark"
+             alt="Integra Psicanálise"
+             width="80" height="80"
+             loading="eager">
+
+        <!-- Badge -->
+        <span class="ead-badge">Em breve</span>
+
+        <!-- Título -->
+        <h1 class="ead-titulo">Ensino a Distância</h1>
+
+        <!-- Subtítulo cursivo -->
+        <p class="ead-sub">A psicanálise chegando onde você está</p>
+
+        <div class="ead-divider"></div>
+
+        <!-- Descrição -->
+        <p class="ead-desc">
+          Estamos trabalhando para levar a formação da Integra Psicanálise
+          para todo o Brasil na modalidade EAD. Em breve disponibilizaremos
+          nossa plataforma de ensino a distância com o mesmo rigor teórico
+          e profundidade clínica da formação presencial.
+        </p>
+
+        <!-- Caixa "Enquanto isso" -->
+        <div class="ead-enquanto">
+          <h3>Enquanto isso, você pode:</h3>
+          <ul>
+            <li>
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+              <span>Conhecer nossa formação presencial — disponível em Recife, Caruaru, Campina Grande e João Pessoa.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+              <span>Entrar na lista de espera para o EAD — fale com a gente pelo WhatsApp e seja um dos primeiros a saber do lançamento.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+              <span>Acompanhar nossas redes sociais para novidades sobre a modalidade EAD.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Botões CTA -->
+        <div class="ead-btns">
+          <a href="https://api.whatsapp.com/send/?phone=5581985761616&text=Olá! Tenho interesse no EAD da Integra Psicanálise. Quero entrar na lista de espera.&type=phone_number&app_absent=0"
+             class="btn btn-primary btn-whatsapp"
+             target="_blank"
+             rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+            Entrar na lista de espera
+          </a>
+          <a href="index.html#modulos" class="btn btn-secondary">
+            Ver formação presencial
+          </a>
+        </div>
+
+        <!-- Link voltar -->
+        <a href="index.html" class="ead-voltar">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          Voltar ao site
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Col 1: Logo + tagline -->
+        <div class="footer-col">
+          <a href="index.html" class="navbar-logo" aria-label="Integra Psicanálise">
+            <img src="imagens/logo-nav-creme.jpg" class="logo-mark" alt="" aria-hidden="true" width="40" height="40" loading="lazy">
+            <div class="logo-text">
+              <span class="logo-nome">Integra Psicanálise</span>
+              <span class="logo-subtitulo">A Nova Escola</span>
+            </div>
+          </a>
+          <p class="footer-tagline">
+            Formando psicanalistas com rigor teórico,<br>
+            sensibilidade clínica e visão plural.
+          </p>
+        </div>
+
+        <!-- Col 2: Navegação -->
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <nav aria-label="Navegação do rodapé">
+            <a href="index.html#inicio"    class="footer-nav-link">Início</a>
+            <a href="index.html#sobre"     class="footer-nav-link">Sobre nós</a>
+            <a href="index.html#modulos"   class="footer-nav-link">Módulos</a>
+            <a href="index.html#condicoes" class="footer-nav-link">Condições</a>
+            <a href="index.html#contato"   class="footer-nav-link">Contato</a>
+          </nav>
+        </div>
+
+        <!-- Col 3: Unidades -->
+        <div class="footer-col">
+          <h4>Nossas Unidades</h4>
+          <a href="sede/recife.html"          class="footer-nav-link">Recife — Sede</a>
+          <a href="index.html#unidades"       class="footer-nav-link">Caruaru, PE</a>
+          <a href="index.html#unidades"       class="footer-nav-link">Campina Grande, PB</a>
+          <a href="index.html#unidades"       class="footer-nav-link">João Pessoa, PB</a>
+        </div>
+
+        <!-- Col 4: Contato e social -->
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <div class="footer-contato-item">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <span>Sede — R. Sete de Setembro, 454 — Recife, PE</span>
+          </div>
+          <div class="footer-contato-item">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            <a href="https://api.whatsapp.com/send/?phone=5581985761616&text&type=phone_number&app_absent=0"
+               class="btn-whatsapp"
+               target="_blank"
+               rel="noopener noreferrer">
+              (81) 98576-1616
+            </a>
+          </div>
+          <div class="footer-contato-item">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:integrapsicanalise@gmail.com">
+              integrapsicanalise@gmail.com
+            </a>
+          </div>
+          <nav class="footer-social" aria-label="Redes sociais">
+            <a href="https://www.instagram.com/integrapsicanalise_/"
+               class="btn-social-ext"
+               aria-label="Instagram da Integra Psicanálise"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=5581985761616&text&type=phone_number&app_absent=0"
+               class="btn-whatsapp"
+               aria-label="WhatsApp"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="btn-social-ext" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Linha inferior -->
+    <div class="footer-bottom">
+      <div class="container">
+        <p>
+          &copy; 2026 Integra Psicanálise — A Nova Escola. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       WHATSAPP FLUTUANTE + BACK-TO-TOP
+       ============================================================ -->
+  <a href="https://api.whatsapp.com/send/?phone=5581985761616&text&type=phone_number&app_absent=0"
+     class="whatsapp-float btn-whatsapp"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Falar no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-float-label">Fale conosco</span>
+  </a>
+
+  <button id="back-to-top" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- JS global -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
