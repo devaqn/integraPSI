@@ -1299,10 +1299,12 @@ div.loader-logo {
   .modulos-header-img {
     flex: 0 0 auto;
     width: 100%;
-    max-width: 320px;
+    max-width: 100%;
   }
   .modulos-header-img img {
-    height: 200px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-position: center 85%;
   }
 }
 
