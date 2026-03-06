@@ -12,6 +12,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8000"],
       "port": 8000
+    },
+    {
+      "name": "paulo-dev",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "npx", "serve", "arquivos de paulo/dev", "--listen", "4000", "--no-clipboard"],
+      "port": 4000
     }
   ]
 }

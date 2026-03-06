@@ -252,17 +252,17 @@ section {
   -webkit-user-select: none;
 }
 
-/* Botão primário verde lima — usado em todos os CTAs principais */
+/* Botão primário verde musgo — usado em todos os CTAs principais */
 .btn-primary {
-  background: var(--cor-lima);
-  color: var(--cor-texto);
+  background: var(--cor-verde);
+  color: var(--cor-creme);
   box-shadow: var(--shadow-btn);
 }
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  filter: brightness(1.1);
+  filter: brightness(1.15);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(168, 198, 64, 0.5);
+  box-shadow: 0 8px 25px rgba(86, 96, 67, 0.5);
 }
 .btn-primary:active {
   transform: translateY(-1px);
@@ -709,11 +709,22 @@ div.loader-logo {
   width: calc(100% - 1.5rem);
 }
 
-/* Botão CTA na navbar */
+/* Botão CTA na navbar — creme sobre terracota */
 .navbar-cta {
   font-size: 0.8rem;
   padding: 0.6rem 1.25rem;
+  background: var(--cor-creme);
+  color: var(--cor-terracota);
+  box-shadow: 0 2px 12px rgba(140, 50, 17, 0.25);
   animation: glowPulse 3s ease-in-out infinite;
+}
+.navbar-cta:hover,
+.navbar-cta:focus-visible {
+  background: var(--cor-areia);
+  color: var(--cor-texto);
+  filter: none;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(140, 50, 17, 0.3);
 }
 
 /* ── Hambúrguer (só mobile) ───────────────────────────────── */
