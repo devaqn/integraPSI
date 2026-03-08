@@ -55,7 +55,7 @@ const INTEGRA_LOGO_SVG = `<svg class="btn-flash-logo" viewBox="-10 -10 220 220" 
     <circle cx="100" cy="52"  r="3.5" fill="#F2E6DF"/>
     <circle cx="100" cy="135" r="22"  stroke="#F2E6DF" stroke-width="3.5" fill="none"/>
     <circle cx="100" cy="135" r="11"  stroke="#F2E6DF" stroke-width="2.5" fill="none"/>
-    <circle cx="100" cy="135" r="4.5" fill="#A8C640"/>
+    <circle cx="100" cy="135" r="4.5" fill="#566043"/>
     <circle cx="100" cy="22"  r="3.5" fill="#F2E6DF" opacity="0.7"/>
     <circle cx="178" cy="105" r="3.5" fill="#F2E6DF" opacity="0.7"/>
     <circle cx="100" cy="190" r="4"   fill="#F2E6DF" opacity="0.7"/>

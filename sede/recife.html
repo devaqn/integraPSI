@@ -17,15 +17,16 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://integrapsicanalise.com/sede/recife.html">
 
-  <!-- ── Favicon — símbolo oficial Integra em SVG ────────── -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='24' fill='%23566043'/%3E%3Cpath d='M 28 62 A 32 32 0 1 1 92 62' stroke='%23F2E6DF' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M 60 30 Q 76 30 76 44 Q 76 58 60 58 Q 49 58 49 48 Q 49 39 57 38' stroke='%23F2E6DF' stroke-width='2.8' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='60' cy='32' r='3' fill='%23F2E6DF'/%3E%3Ccircle cx='60' cy='78' r='15' stroke='%23F2E6DF' stroke-width='3.5' fill='none'/%3E%3Ccircle cx='60' cy='78' r='6.5' stroke='%23F2E6DF' stroke-width='2.5' fill='none'/%3E%3Ccircle cx='60' cy='78' r='3.5' fill='%23A8C640'/%3E%3Ccircle cx='60' cy='16' r='2.5' fill='%23F2E6DF' opacity='0.7'/%3E%3Ccircle cx='96' cy='60' r='2.5' fill='%23F2E6DF' opacity='0.7'/%3E%3Ccircle cx='60' cy='104' r='3' fill='%23F2E6DF' opacity='0.7'/%3E%3C/svg%3E">
+  <!-- ── Favicon ──────────────────────────────────────────── -->
+  <link rel="icon" type="image/jpeg" href="../imagens/logo-nav-verde.jpg">
+  <link rel="apple-touch-icon" href="../imagens/logo-nav-verde.jpg">
   <meta name="theme-color" content="#566043">
 
   <!-- ── Google Fonts ─────────────────────────────────────── -->
   <!-- Atenção: caminhos de fontes são externos (CDN), sem ../ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- ── Font Awesome 6 ────────────────────────────────────── -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -44,7 +45,7 @@
       <!-- Símbolo SVG da Integra — gira suavemente no centro -->
       <div class="loader-logo">
       <img class="loader-logo-img"
-           src="../imagens/logo-nav-creme.jpg"
+           src="../imagens/logo-loader-marcadagua-07.png"
            alt=""
            aria-hidden="true"
            width="140" height="140"
@@ -243,24 +244,15 @@
           </div>
         </div>
 
-        <!-- Grade de fotos 2x2 (placeholders até ter fotos reais) -->
+        <!-- Foto principal da sede -->
         <div class="sede-fotos-grid reveal-right">
 
-          <!-- Foto principal: fachada real -->
+          <!-- Foto principal: fachada real (ampliada) -->
           <div class="reveal reveal-delay-1" style="grid-column:span 2">
             <img src="../imagens/img-fachada-recife.jpg"
                  alt="Fachada da sede Integra Psicanálise Recife"
                  loading="lazy"
-                 style="width:100%;height:220px;object-fit:cover;object-position:center 15%;border-radius:8px">
-          </div>
-
-          <!-- Demais fotos: placeholders até ter imagens reais -->
-          <div class="placeholder-foto reveal reveal-delay-2">
-            <span>Sala de aula principal</span>
-          </div>
-
-          <div class="placeholder-foto reveal reveal-delay-3">
-            <span>Recepção e espaço de convivência</span>
+                 style="width:100%;height:320px;object-fit:cover;object-position:center 15%;border-radius:8px">
           </div>
 
         </div>
@@ -280,39 +272,79 @@
       <h2 id="galeria-titulo" class="reveal">Conheça nosso espaço</h2>
 
       <!-- Grid de galeria: 4 colunas desktop, 2 mobile -->
-      <!-- Para adicionar fotos reais: substitua .galeria-placeholder por <img> -->
+      <!-- Para trocar depois: altere apenas o src de cada <img> conforme a área indicada no comentário -->
       <div class="galeria-grid">
 
-        <div class="galeria-placeholder reveal reveal-delay-1">
-          <span>Sala de aula</span>
+        <div class="galeria-item reveal reveal-delay-1">
+          <!-- ÁREA: Sala de aula | IMAGEM ATUAL: ../imagens/logo-loader-marcadagua-07.png -->
+          <img src="../imagens/logo-loader-marcadagua-07.png"
+               class="galeria-img-marca"
+               alt="Sala de aula da sede Integra Psicanálise (imagem provisória da marca)"
+               loading="lazy">
+          <span class="galeria-legenda">Sala de aula</span>
         </div>
 
-        <div class="galeria-placeholder reveal reveal-delay-2">
-          <span>Recepção</span>
+        <div class="galeria-item reveal reveal-delay-2">
+          <!-- ÁREA: Recepção | IMAGEM ATUAL: ../imagens/logo-loader-marcadagua-07.png -->
+          <img src="../imagens/logo-loader-marcadagua-07.png"
+               class="galeria-img-marca"
+               alt="Recepção da sede Integra Psicanálise (imagem provisória da marca)"
+               loading="lazy">
+          <span class="galeria-legenda">Recepção</span>
         </div>
 
-        <div class="galeria-placeholder reveal reveal-delay-3">
-          <span>Sala de estudos</span>
+        <div class="galeria-item reveal reveal-delay-3">
+          <!-- ÁREA: Sala de estudos | IMAGEM ATUAL: ../imagens/logo-loader-marcadagua-07.png -->
+          <img src="../imagens/logo-loader-marcadagua-07.png"
+               class="galeria-img-marca"
+               alt="Sala de estudos da sede Integra Psicanálise (imagem provisória da marca)"
+               loading="lazy">
+          <span class="galeria-legenda">Sala de estudos</span>
         </div>
 
-        <div class="galeria-placeholder reveal reveal-delay-4">
-          <span>Espaço de convivência</span>
+        <div class="galeria-item reveal reveal-delay-4">
+          <!-- ÁREA: Espaço de convivência | IMAGEM ATUAL: ../imagens/logo-loader-marcadagua-07.png -->
+          <img src="../imagens/logo-loader-marcadagua-07.png"
+               class="galeria-img-marca"
+               alt="Espaço de convivência da sede Integra Psicanálise (imagem provisória da marca)"
+               loading="lazy">
+          <span class="galeria-legenda">Espaço de convivência</span>
         </div>
 
-        <div class="galeria-placeholder reveal reveal-delay-1">
-          <span>Biblioteca</span>
+        <div class="galeria-item reveal reveal-delay-1">
+          <!-- ÁREA: Biblioteca | IMAGEM ATUAL: ../imagens/logo-loader-marcadagua-07.png -->
+          <img src="../imagens/logo-loader-marcadagua-07.png"
+               class="galeria-img-marca"
+               alt="Biblioteca da sede Integra Psicanálise (imagem provisória da marca)"
+               loading="lazy">
+          <span class="galeria-legenda">Biblioteca</span>
         </div>
 
-        <div class="galeria-placeholder reveal reveal-delay-2">
-          <span>Detalhe da fachada</span>
+        <div class="galeria-item reveal reveal-delay-2">
+          <!-- ÁREA: Detalhe da fachada | IMAGEM ATUAL: ../imagens/logo-loader-marcadagua-07.png -->
+          <img src="../imagens/logo-loader-marcadagua-07.png"
+               class="galeria-img-marca"
+               alt="Detalhe da fachada da sede Integra Psicanálise (imagem provisória da marca)"
+               loading="lazy">
+          <span class="galeria-legenda">Detalhe da fachada</span>
         </div>
 
-        <div class="galeria-placeholder reveal reveal-delay-3">
-          <span>Sala de supervisão</span>
+        <div class="galeria-item reveal reveal-delay-3">
+          <!-- ÁREA: Sala de supervisão | IMAGEM ATUAL: ../imagens/logo-loader-marcadagua-07.png -->
+          <img src="../imagens/logo-loader-marcadagua-07.png"
+               class="galeria-img-marca"
+               alt="Sala de supervisão da sede Integra Psicanálise (imagem provisória da marca)"
+               loading="lazy">
+          <span class="galeria-legenda">Sala de supervisão</span>
         </div>
 
-        <div class="galeria-placeholder reveal reveal-delay-4">
-          <span>Área externa</span>
+        <div class="galeria-item reveal reveal-delay-4">
+          <!-- ÁREA: Área externa | IMAGEM ATUAL: ../imagens/logo-loader-marcadagua-07.png -->
+          <img src="../imagens/logo-loader-marcadagua-07.png"
+               class="galeria-img-marca"
+               alt="Área externa da sede Integra Psicanálise (imagem provisória da marca)"
+               loading="lazy">
+          <span class="galeria-legenda">Área externa</span>
         </div>
 
       </div>
@@ -436,7 +468,7 @@
         <!-- Col 1: Logo + tagline -->
         <div class="footer-col">
           <a href="../index.html" class="navbar-logo" aria-label="Integra Psicanálise">
-            <img src="../imagens/logo-nav-creme.jpg" class="logo-mark" alt="" aria-hidden="true" width="40" height="40" loading="eager">
+            <img src="../imagens/logo-loader-marcadagua-07.png" class="logo-mark" alt="" aria-hidden="true" width="40" height="40" loading="eager">
             <div class="logo-text">
               <span class="logo-nome">Integra Psicanálise</span>
               <span class="logo-subtitulo">A Nova Escola</span>

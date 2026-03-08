@@ -19,14 +19,14 @@
   <meta property="og:url" content="https://integrapsicanalise.com/ead.html">
 
   <!-- ── Favicon ──────────────────────────────────────────── -->
-  <link rel="icon" type="image/jpeg" href="imagens/logo-nav-terracota.jpg">
-  <link rel="apple-touch-icon" href="imagens/logo-nav-terracota.jpg">
+  <link rel="icon" type="image/jpeg" href="imagens/logo-nav-verde.jpg">
+  <link rel="apple-touch-icon" href="imagens/logo-nav-verde.jpg">
   <meta name="theme-color" content="#8C3211">
 
   <!-- ── Google Fonts ─────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- ── Font Awesome 6 ────────────────────────────────────── -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -47,6 +47,16 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+    }
+
+    /* Marca d'agua grande de fundo (sutil) */
+    .ead-hero-watermark {
+      position: absolute;
+      inset: 0;
+      background: url("imagens/marca-dagua-integra-03.png") center 54% / clamp(540px, 78vw, 1080px) no-repeat;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
     }
 
     /* Decoração de fundo: círculos tênues concêntricos */
@@ -215,6 +225,22 @@
       animation: eadFadeUp 0.7s 0.92s cubic-bezier(0.22, 0.61, 0.36, 1) both;
     }
 
+    /* Botão secundário da EAD — evita aparência "flutuando" */
+    .ead-btns .btn-secondary {
+      background: rgba(255, 255, 255, 0.32);
+      color: var(--cor-texto, #2C1A0E);
+      border-color: rgba(140, 50, 17, 0.42);
+      box-shadow: 0 2px 10px rgba(44, 26, 14, 0.1);
+    }
+    .ead-btns .btn-secondary:hover,
+    .ead-btns .btn-secondary:focus-visible {
+      background: var(--cor-terracota, #8C3211);
+      color: var(--cor-creme, #F2E6DF);
+      border-color: var(--cor-terracota, #8C3211);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(140, 50, 17, 0.26);
+    }
+
     /* Link "Voltar ao site" */
     .ead-voltar {
       margin-top: 2.5rem;
@@ -229,7 +255,30 @@
       transition: opacity 0.2s;
       animation: eadFadeUp 0.7s 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
     }
-    .ead-voltar:hover { opacity: 0.85; }
+    .ead-voltar:hover,
+    .ead-voltar:focus-visible {
+      opacity: 0.85;
+    }
+    .ead-voltar:hover i,
+    .ead-voltar:focus-visible i {
+      animation: eadVoltarSeta 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .ead-voltar:active {
+      animation: eadVoltarPress 0.2s ease-out;
+    }
+
+    @keyframes eadVoltarSeta {
+      0%   { transform: translateX(0); }
+      40%  { transform: translateX(-4px); }
+      70%  { transform: translateX(1px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes eadVoltarPress {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(0.97); }
+      100% { transform: scale(1); }
+    }
 
     /* ── Keyframe compartilhado: fade + sobe ─────────────── */
     @keyframes eadFadeUp {
@@ -288,7 +337,7 @@
     <div class="loader-inner">
       <div class="loader-logo">
       <img class="loader-logo-img"
-           src="imagens/logo-nav-creme.jpg"
+           src="imagens/logo-loader-marcadagua-07.png"
            alt=""
            aria-hidden="true"
            width="140" height="140"
@@ -392,6 +441,7 @@
        ============================================================ -->
   <main id="main-content">
     <section class="ead-hero">
+      <div class="ead-hero-watermark" aria-hidden="true"></div>
       <div class="ead-hero-inner">
 
         <!-- Logo selo -->
@@ -474,7 +524,7 @@
         <!-- Col 1: Logo + tagline -->
         <div class="footer-col">
           <a href="index.html" class="navbar-logo" aria-label="Integra Psicanálise">
-            <img src="imagens/logo-nav-creme.jpg" class="logo-mark" alt="" aria-hidden="true" width="40" height="40" loading="lazy">
+            <img src="imagens/logo-loader-marcadagua-07.png" class="logo-mark" alt="" aria-hidden="true" width="40" height="40" loading="lazy">
             <div class="logo-text">
               <span class="logo-nome">Integra Psicanálise</span>
               <span class="logo-subtitulo">A Nova Escola</span>

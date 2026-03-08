@@ -40,7 +40,7 @@
   --cor-creme:     #F2E6DF;   /* Creme claro — fundo principal */
 
   /* === DERIVADAS FUNCIONAIS === */
-  --cor-lima:      #A8C640;   /* Verde lima — exclusivo para botões CTA */
+  --cor-lima:      #566043;   /* Verde lima — exclusivo para botões CTA */
   --cor-branco:    #FAF8F5;   /* Off-white — fundo de cards */
   --cor-preto:     #1A1A1A;   /* Quase preto — footer */
   --cor-texto:     #2C1A0E;   /* Marrom escuro — corpo de texto */
@@ -49,13 +49,13 @@
   /* === TIPOGRAFIA === */
   --fonte-serif:   'Cormorant Garamond', Georgia, serif;  /* títulos elegantes */
   --fonte-script:  'Dancing Script', cursive;             /* subtítulos cursivos */
-  --fonte-sans:    'Inter', system-ui, sans-serif;        /* corpo e UI */
+  --fonte-sans:    'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;  /* corpo e UI */
 
   /* === ALIASES DE TIPOGRAFIA (compatibilidade landing + páginas) === */
   --fonte-titulo:  'Cormorant Garamond', Georgia, serif;  /* = --fonte-serif  */
   --fonte-cursivo: 'Dancing Script', cursive;             /* = --fonte-script */
-  --fonte-corpo:   'Inter', system-ui, sans-serif;        /* = --fonte-sans   */
-  --fonte-texto:   'Inter', system-ui, sans-serif;        /* = --fonte-sans   */
+  --fonte-corpo:   'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;  /* = --fonte-sans   */
+  --fonte-texto:   'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;  /* = --fonte-sans   */
 
   /* === ESPAÇAMENTOS === */
   --section-gap:   6rem;      /* padding vertical de cada section */
@@ -66,7 +66,7 @@
   /* === SOMBRAS === */
   --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.08);
   --shadow-hover:  0 12px 40px rgba(0, 0, 0, 0.16);
-  --shadow-btn:    0 4px 15px rgba(168, 198, 64, 0.35);   /* sombra lima nos CTAs */
+  --shadow-btn:    0 4px 15px rgba(86, 96, 67, 0.35);   /* sombra lima nos CTAs */
 
   /* === TRANSIÇÃO GLOBAL === */
   --transition:    0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -95,6 +95,8 @@ html {
 
 body {
   font-family: var(--fonte-sans);
+  font-weight: 300;
+  letter-spacing: 0.01em;
   color: var(--cor-texto);
   line-height: 1.7;
   overflow-x: hidden;           /* sem scroll horizontal */
@@ -146,9 +148,9 @@ input, textarea, select, button {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--cor-lima);
-  background: rgba(168, 198, 64, 0.12);
-  border: 1px solid rgba(168, 198, 64, 0.25);
+  color: var(--cor-verde);
+  background: rgba(86, 96, 67, 0.12);
+  border: 1px solid rgba(86, 96, 67, 0.25);
   border-radius: 50px;
   padding: 0.3rem 1rem;
   margin-bottom: 1rem;
@@ -158,7 +160,7 @@ input, textarea, select, button {
 .section-divider {
   width: 80px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--cor-lima), transparent);
+  background: linear-gradient(90deg, transparent, var(--cor-verde), transparent);
   border-radius: 2px;
   margin: 1.5rem auto 0;
   transition: width 0.6s ease;
@@ -350,8 +352,8 @@ section {
 
 /* Glow pulsante no botão CTA hero */
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(168, 198, 64, 0.5); }
-  50%       { box-shadow: 0 0 20px 8px rgba(168, 198, 64, 0.25); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(86, 96, 67, 0.5); }
+  50%       { box-shadow: 0 0 20px 8px rgba(86, 96, 67, 0.25); }
 }
 
 /* Shimmer nos cards de abordagem (hover) */
@@ -430,7 +432,7 @@ section {
 .loader-logo {
   width: 140px;
   height: 140px;
-  filter: drop-shadow(0 0 20px rgba(168, 198, 64, 0.3));
+  filter: drop-shadow(0 0 20px rgba(86, 96, 67, 0.3));
   animation: loaderBreath 3s ease-in-out infinite;
 }
 
@@ -489,7 +491,7 @@ div.loader-logo {
   top: 0;
   width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, var(--cor-lima), transparent);
+  background: linear-gradient(90deg, transparent, var(--cor-verde), transparent);
   border-radius: 2px;
   animation: loaderBarSlide 1.8s ease-in-out infinite;
 }
@@ -525,8 +527,8 @@ div.loader-logo {
 }
 /* SVG inteiro respira — sutil scale + glow */
 @keyframes loaderBreath {
-  0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 20px rgba(168,198,64,0.28)); }
-  50%       { transform: scale(1.04); filter: drop-shadow(0 0 32px rgba(168,198,64,0.55)); }
+  0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 20px rgba(86,96,67,0.28)); }
+  50%       { transform: scale(1.04); filter: drop-shadow(0 0 32px rgba(86,96,67,0.55)); }
 }
 /* Anel decorativo pulsa de opacidade */
 @keyframes loaderRingPulse {
@@ -694,7 +696,7 @@ div.loader-logo {
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: var(--cor-lima);
+  background: var(--cor-verde);
   border-radius: 2px;
   transition: width var(--transition);
 }
@@ -713,18 +715,18 @@ div.loader-logo {
 .navbar-cta {
   font-size: 0.8rem;
   padding: 0.6rem 1.25rem;
-  background: var(--cor-creme);
-  color: var(--cor-terracota);
-  box-shadow: 0 2px 12px rgba(140, 50, 17, 0.25);
+  background: var(--cor-verde);
+  color: var(--cor-creme);
+  box-shadow: 0 2px 12px rgba(86, 96, 67, 0.35);
   animation: glowPulse 3s ease-in-out infinite;
 }
 .navbar-cta:hover,
 .navbar-cta:focus-visible {
-  background: var(--cor-areia);
-  color: var(--cor-texto);
-  filter: none;
+  background: var(--cor-verde);
+  color: var(--cor-creme);
+  filter: brightness(1.12);
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(140, 50, 17, 0.3);
+  box-shadow: 0 6px 20px rgba(86, 96, 67, 0.45);
 }
 
 /* ── Hambúrguer (só mobile) ───────────────────────────────── */
@@ -867,7 +869,7 @@ div.loader-logo {
 .drawer-link:hover {
   color: var(--cor-creme);
   background: rgba(255, 255, 255, 0.08);
-  border-left-color: var(--cor-lima);
+  border-left-color: var(--cor-verde);
   transform: translateX(4px);
 }
 
@@ -1023,7 +1025,7 @@ div.loader-logo {
   transition: color var(--transition);
 }
 .scroll-indicator:hover {
-  color: var(--cor-lima);
+  color: var(--cor-verde);
 }
 
 
@@ -1198,7 +1200,7 @@ div.loader-logo {
 .pilar-card:hover .pilar-icon {
   transform: scale(1.12) rotate(-5deg);
   background: rgba(242, 230, 223, 0.25);
-  color: var(--cor-lima);   /* lima no hover para contraste máximo */
+  color: var(--cor-verde);   /* lima no hover para contraste máximo */
 }
 
 /* Título do pilar */
@@ -1388,7 +1390,7 @@ div.loader-logo {
 
 /* Ícone +/- */
 .acordeao-icon {
-  color: var(--cor-lima);
+  color: var(--cor-verde);
   font-size: 1.2rem;
   transition: transform var(--transition);
   flex-shrink: 0;
@@ -1424,7 +1426,7 @@ div.loader-logo {
 /* Seta decorativa antes de cada disciplina */
 .disciplina::before {
   content: '→';
-  color: var(--cor-lima);
+  color: var(--cor-verde);
   font-weight: 700;
   font-size: 1rem;
   margin-top: 0.1rem;
@@ -1498,7 +1500,7 @@ div.loader-logo {
 .turma-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
-  border-bottom-color: var(--cor-lima);
+  border-bottom-color: var(--cor-verde);
 }
 
 /* Ícone da turma */
@@ -1573,23 +1575,50 @@ div.loader-logo {
 
 /* Card da coluna creme: mais contraste para não parecer flutuando */
 .condicao-col--iniciantes .condicao-card {
-  background: var(--cor-branco);
-  border: 1px solid rgba(86, 96, 67, 0.14);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 6px 22px rgba(86, 96, 67, 0.1);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8F5F2 100%);
+  border: 1.5px solid rgba(86, 96, 67, 0.26);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 4px 14px rgba(44, 26, 14, 0.08);
 }
 
 /* Badge de tipo de aluno */
 .condicao-badge {
+  /* Legibilidade dos rótulos nas 3 colunas sem fundo pesado */
   font-family: var(--fonte-serif);
   font-style: italic;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.35rem;
 }
-.condicao-col--iniciantes .condicao-badge { color: var(--cor-terracota); }
-.condicao-col--avancados  .condicao-badge { color: var(--cor-lima); }
-.condicao-col--formados   .condicao-badge { color: var(--cor-terracota); }
+
+/* Sublinha discreta usando a própria cor do texto */
+.condicao-badge::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 44px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+/* Contraste por fundo de coluna */
+.condicao-col--iniciantes .condicao-badge,
+.condicao-col--formados .condicao-badge {
+  color: var(--cor-terracota);
+}
+
+.condicao-col--avancados .condicao-badge {
+  color: var(--cor-creme);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.22);
+}
 
 /* Título da condição */
 .condicao-col h2 {
@@ -1623,6 +1652,33 @@ div.loader-logo {
   margin-top: auto;
 }
 
+/* CTA das colunas de condição com box na cor do fundo da coluna */
+.condicao-col .btn.btn-primary {
+  color: var(--cor-terracota);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+}
+.condicao-col--iniciantes .btn.btn-primary {
+  background: var(--cor-creme);
+  border-color: rgba(86, 96, 67, 0.45);
+}
+.condicao-col--avancados .btn.btn-primary {
+  background: var(--cor-verde);
+  border-color: rgba(242, 230, 223, 0.35);
+}
+.condicao-col--formados .btn.btn-primary {
+  background: var(--cor-areia);
+  border-color: rgba(86, 96, 67, 0.45);
+}
+.condicao-col .btn.btn-primary i {
+  color: var(--cor-terracota);
+}
+.condicao-col .btn.btn-primary:hover,
+.condicao-col .btn.btn-primary:focus-visible {
+  filter: none;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
 /* Lista de benefícios */
 .beneficios-lista {
   display: flex;
@@ -1645,7 +1701,7 @@ div.loader-logo {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--cor-lima);
+  background: var(--cor-verde);
   color: #fff;
   display: flex;
   align-items: center;
@@ -1653,7 +1709,7 @@ div.loader-logo {
   font-size: 0.65rem;
   flex-shrink: 0;
   margin-top: 0.1rem;
-  box-shadow: 0 2px 8px rgba(168, 198, 64, 0.4);
+  box-shadow: 0 2px 8px rgba(86, 96, 67, 0.4);
 }
 
 /* Preço riscado */
@@ -1742,8 +1798,9 @@ div.loader-logo {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background: var(--cor-lima);
-  color: var(--cor-texto);
+  background: var(--cor-branco);
+  border: 1px solid rgba(140, 50, 17, 0.24);
+  color: var(--cor-terracota);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -1819,11 +1876,24 @@ div.loader-logo {
 
 /* Botão CTA grande */
 .contato-cta-btn {
+  background: var(--cor-terracota);
+  color: var(--cor-creme);
   padding: 1rem 2.5rem;
   font-size: 1rem;
   margin-bottom: 2.5rem;
   height: 58px;
   animation: glowPulse 3s ease-in-out infinite;
+  border-color: var(--cor-terracota);
+  box-shadow:
+    0 0 0 2px rgba(140, 50, 17, 0.28),
+    var(--shadow-btn);
+}
+.contato-cta-btn:hover,
+.contato-cta-btn:focus-visible {
+  box-shadow:
+    0 0 0 2px rgba(140, 50, 17, 0.45),
+    0 8px 25px rgba(86, 96, 67, 0.5),
+    0 0 12px rgba(140, 50, 17, 0.25);
 }
 
 /* Lista de informações de contato */
@@ -1831,6 +1901,12 @@ div.loader-logo {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 0.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(26, 26, 26, 0.14);
+  border: 1px solid rgba(242, 230, 223, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .contato-item {
@@ -1839,14 +1915,27 @@ div.loader-logo {
   gap: 0.85rem;
   color: rgba(242, 230, 223, 0.9);
   font-size: 0.92rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid rgba(242, 230, 223, 0.12);
+}
+.contato-item:last-child {
+  border-bottom: none;
 }
 .contato-item i {
-  color: var(--cor-lima);
+  color: var(--cor-terracota);
   font-size: 1rem;
   margin-top: 0.15rem;
   flex-shrink: 0;
   width: 18px;
   text-align: center;
+}
+.contato-item a {
+  color: var(--cor-creme);
+  text-decoration: none;
+}
+.contato-item a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgba(242, 230, 223, 0.65);
 }
 
 /* Formulário de contato */
@@ -1902,6 +1991,11 @@ div.loader-logo {
   cursor: pointer;
 }
 
+/* Placeholder do select visível e com contraste no estado inicial */
+.form-field select:invalid {
+  color: rgba(242, 230, 223, 0.7);
+}
+
 /* Options dentro do select (cor do sistema — não é possível personalizar) */
 .form-field select option {
   background: var(--cor-verde);
@@ -1913,9 +2007,9 @@ div.loader-logo {
 .form-field select:focus,
 .form-field textarea:focus {
   outline: none;
-  border-color: var(--cor-lima);
+  border-color: var(--cor-verde);
   background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 0 3px rgba(168, 198, 64, 0.2);
+  box-shadow: 0 0 0 3px rgba(86, 96, 67, 0.2);
 }
 
 /* Textarea não redimensionável horizontalmente */
@@ -1956,8 +2050,8 @@ div.loader-logo {
 /* Mensagem de sucesso após envio */
 .form-success {
   display: none;
-  background: rgba(168, 198, 64, 0.15);
-  border: 1.5px solid var(--cor-lima);
+  background: rgba(86, 96, 67, 0.15);
+  border: 1.5px solid var(--cor-verde);
   border-radius: 8px;
   padding: 1.25rem;
   text-align: center;
@@ -1970,7 +2064,7 @@ div.loader-logo {
 }
 .form-success i {
   font-size: 1.5rem;
-  color: var(--cor-lima);
+  color: var(--cor-verde);
   margin-bottom: 0.5rem;
   display: block;
 }
@@ -1992,6 +2086,32 @@ footer {
   gap: 3rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Marca d'agua na coluna da marca (logo + tagline) */
+.footer-grid > .footer-col:first-child {
+  position: relative;
+  isolation: isolate;
+}
+.footer-grid > .footer-col:first-child::before {
+  content: '';
+  position: absolute;
+  inset: -12px 0 -12px -24px;
+  background: url("../../imagens/logo-loader-marcadagua-07.png") left center / 220px no-repeat;
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.footer-grid:hover > .footer-col:first-child::before,
+.footer-grid:focus-within > .footer-col:first-child::before {
+  opacity: 0.08;
+  transform: scale(1);
+}
+.footer-grid > .footer-col:first-child > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Tagline no footer */
@@ -2026,7 +2146,7 @@ footer {
 }
 .footer-col a:hover {
   color: var(--cor-creme);
-  border-left-color: var(--cor-lima);
+  border-left-color: var(--cor-verde);
   padding-left: 0.5rem;
 }
 
@@ -2041,7 +2161,7 @@ footer {
   line-height: 1.5;
 }
 .footer-contato-item i {
-  color: var(--cor-lima);
+  color: var(--cor-terracota);
   margin-top: 0.1rem;
   font-size: 0.9rem;
   flex-shrink: 0;
@@ -2075,9 +2195,9 @@ footer {
   border-left: 1px solid rgba(255,255,255,0.1) !important;
 }
 .footer-social a:hover {
-  background: var(--cor-lima);
+  background: var(--cor-verde);
   color: var(--cor-texto) !important;
-  border-color: var(--cor-lima) !important;
+  border-color: var(--cor-verde) !important;
   transform: translateY(-4px) !important;
 }
 
@@ -2147,18 +2267,18 @@ footer {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.82rem;
-  color: rgba(242, 230, 223, 0.7);
+  color: var(--cor-terracota);
   margin-bottom: 1rem;
 }
 .breadcrumb a {
-  color: var(--cor-lima);
+  color: var(--cor-terracota);
   transition: opacity var(--transition);
 }
 .breadcrumb a:hover {
   opacity: 0.8;
 }
 .breadcrumb span {
-  color: rgba(242, 230, 223, 0.5);
+  color: var(--cor-terracota);
 }
 
 /* Título da sede */
@@ -2226,6 +2346,29 @@ footer {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+}
+
+/* Imagem provisória da marca da Integra nos espaços sem foto real */
+.galeria-item img.galeria-img-marca {
+  object-fit: contain;
+  padding: 1rem;
+  background: rgba(178, 151, 132, 0.2);
+}
+
+/* Legenda da área da sede sobre a imagem */
+.galeria-legenda {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--cor-creme);
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.04) 0%, rgba(26, 26, 26, 0.72) 100%);
+  text-align: center;
+  letter-spacing: 0.02em;
+  z-index: 2;
 }
 .galeria-item:hover img {
   transform: scale(1.08);
@@ -2822,15 +2965,14 @@ footer {
   overflow: hidden;
 }
 
-/* === Watermark subliminar — logo completa Integra aparece no hover ===
-   SVG idêntico ao page-loader, versão branca para uso como background.
-   Transição: scale 0.8→1 + fade opacity 0→0.13 com easing suave.      */
+/* === Watermark subliminar — marca d'água oficial da Integra no hover ===
+   Usa PNG transparente oficial para manter o desenho fiel da marca.      */
 .btn::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 220 220' fill='none'%3E%3Cg%3E%3Cpath d='M 44 108 A 58 58 0 1 1 156 108' stroke='white' stroke-width='4.5' stroke-linecap='round'/%3E%3Cpath d='M 100 50 Q 128 50 128 75 Q 128 98 100 100 Q 82 100 82 82 Q 82 66 96 64' stroke='white' stroke-width='3' stroke-linecap='round' opacity='0.9'/%3E%3Ccircle cx='100' cy='52' r='3.5' fill='white'/%3E%3Ccircle cx='100' cy='135' r='22' stroke='white' stroke-width='3.5'/%3E%3Ccircle cx='100' cy='135' r='11' stroke='white' stroke-width='2.5'/%3E%3Ccircle cx='100' cy='135' r='4.5' fill='%23A8C640'/%3E%3Ccircle cx='100' cy='22' r='3.5' fill='white' opacity='0.7'/%3E%3Ccircle cx='178' cy='105' r='3.5' fill='white' opacity='0.7'/%3E%3Ccircle cx='100' cy='190' r='4' fill='white' opacity='0.7'/%3E%3C/g%3E%3Ccircle cx='100' cy='100' r='90' stroke='white' stroke-width='1' opacity='0.15'/%3E%3C/svg%3E")
+    url("../../imagens/logo-loader-marcadagua-07.png")
     center / 52% no-repeat;
   opacity: 0;
   transform: scale(0.82) rotate(-8deg);
@@ -2866,7 +3008,7 @@ footer {
   height:    56px !important;
   min-width: 56px;
   filter:
-    drop-shadow(0 0 8px rgba(168, 198, 64, 0.55))
+    drop-shadow(0 0 8px rgba(86, 96, 67, 0.55))
     drop-shadow(0 0 18px rgba(242, 230, 223, 0.3));
   /* Cancela a animação loaderBreath (que seria infinita) —
      o bloom do pai (.btn-logo-flash) já faz o efeito de entrada/saída */
@@ -3033,7 +3175,7 @@ footer a:not(.btn):not(.navbar-logo):not(.btn-social-ext)::after {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--cor-lima);
+  background: var(--cor-verde);
   transition: width var(--transition-silk);
 }
 footer a:not(.btn):not(.navbar-logo):not(.btn-social-ext):hover::after {
@@ -3061,10 +3203,10 @@ footer a:not(.btn):not(.navbar-logo):not(.btn-social-ext):hover::after {
 .contato-form textarea:focus,
 .contato-form select:focus {
   outline: none;
-  border-color: var(--cor-lima);
+  border-color: var(--cor-verde);
   box-shadow:
-    0 0 0 3px rgba(168, 198, 64, 0.18),
-    0 2px 12px rgba(168, 198, 64, 0.12);
+    0 0 0 3px rgba(86, 96, 67, 0.18),
+    0 2px 12px rgba(86, 96, 67, 0.12);
   transform: translateY(-1px);
   transition:
     border-color 0.2s ease,
@@ -3125,7 +3267,7 @@ footer a:not(.btn):not(.navbar-logo):not(.btn-social-ext):hover::after {
     transform var(--transition);
 }
 .form-field:focus-within label {
-  color: var(--cor-lima);
+  color: var(--cor-verde);
 }
 
 /* === Pilar cards — animação de entrada com micro-spring === */
@@ -3155,12 +3297,12 @@ footer a:not(.btn):not(.navbar-logo):not(.btn-social-ext):hover::after {
   0%, 100% {
     box-shadow:
       var(--shadow-btn),
-      0 0 0 0 rgba(168, 198, 64, 0.45);
+      0 0 0 0 rgba(86, 96, 67, 0.45);
   }
   50% {
     box-shadow:
       var(--shadow-btn),
-      0 0 20px 6px rgba(168, 198, 64, 0.22);
+      0 0 20px 6px rgba(86, 96, 67, 0.22);
   }
 }
 
@@ -3185,7 +3327,7 @@ footer a:not(.btn):not(.navbar-logo):not(.btn-social-ext):hover::after {
     transform: translateY(-4px);
     box-shadow:
       0 16px 40px rgba(0, 0, 0, 0.35),
-      0 0 0 1.5px rgba(168, 198, 64, 0.5);
+      0 0 0 1.5px rgba(86, 96, 67, 0.5);
   }
 }
 
@@ -3424,7 +3566,7 @@ img[loading="lazy"]:not([src]) {
 
 /* Foco por teclado */
 .modulo-card:focus-visible {
-  box-shadow: 0 0 0 3px rgba(168, 198, 64, 0.5);
+  box-shadow: 0 0 0 3px rgba(86, 96, 67, 0.5);
 }
 
 /* Número decorativo de fundo — muito sutil em verde sobre branco */
@@ -3581,14 +3723,14 @@ img[loading="lazy"]:not([src]) {
   flex-direction: column;
   gap: 0.4rem;
   scrollbar-width: thin;
-  scrollbar-color: rgba(168, 198, 64, 0.3) transparent;
+  scrollbar-color: rgba(86, 96, 67, 0.3) transparent;
 }
 
 /* Scrollbar fina e discreta */
 .modulo-overlay-inner::-webkit-scrollbar { width: 3px; }
 .modulo-overlay-inner::-webkit-scrollbar-track { background: transparent; }
 .modulo-overlay-inner::-webkit-scrollbar-thumb {
-  background: rgba(168, 198, 64, 0.35);
+  background: rgba(86, 96, 67, 0.35);
   border-radius: 2px;
 }
 
@@ -3597,7 +3739,7 @@ img[loading="lazy"]:not([src]) {
   font-size: 0.58rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cor-lima);
+  color: var(--cor-verde);
   font-weight: 600;
 }
 
@@ -3610,7 +3752,7 @@ img[loading="lazy"]:not([src]) {
   line-height: 1.25;
   padding-bottom: 0.5rem;
   margin-bottom: 0.2rem;
-  border-bottom: 1px solid rgba(168, 198, 64, 0.2);
+  border-bottom: 1px solid rgba(86, 96, 67, 0.2);
 }
 
 /* Lista de disciplinas no overlay */
@@ -3637,7 +3779,7 @@ img[loading="lazy"]:not([src]) {
 /* Tracinho decorativo antes do nome */
 .modulo-disciplina::before {
   content: '—';
-  color: var(--cor-lima);
+  color: var(--cor-verde);
   font-size: 0.65rem;
   flex-shrink: 0;
   opacity: 0.8;
@@ -3655,8 +3797,8 @@ img[loading="lazy"]:not([src]) {
 .modulo-overlay-nota {
   margin-top: 0.75rem;
   padding: 0.65rem 0.85rem;
-  background: rgba(168, 198, 64, 0.1);         /* fundo lima suave */
-  border-left: 2px solid var(--cor-lima);      /* borda lima lateral */
+  background: rgba(86, 96, 67, 0.1);         /* fundo lima suave */
+  border-left: 2px solid var(--cor-verde);      /* borda lima lateral */
   border-radius: 0 6px 6px 0;
   font-size: 0.7rem;
   color: rgba(242, 230, 223, 0.82);
@@ -3667,7 +3809,7 @@ img[loading="lazy"]:not([src]) {
 }
 
 .modulo-overlay-nota i {
-  color: var(--cor-lima);
+  color: var(--cor-verde);
   font-size: 0.72rem;
   margin-top: 0.15em;
   flex-shrink: 0;
@@ -3745,6 +3887,22 @@ img[loading="lazy"]:not([src]) {
   transition: filter 0.45s ease;
 }
 
+/* Marca da Integra na área de foto dos locais (quando ainda não há foto real) */
+.unidade-foto-marca {
+  position: relative;
+  z-index: 2;
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  opacity: 0.97;
+  filter: drop-shadow(0 4px 10px rgba(140, 50, 17, 0.16));
+  transition: transform 0.45s ease;
+}
+
+.unidade-card:hover .unidade-foto-marca {
+  transform: scale(1.04);
+}
+
 .unidade-card:hover .unidade-foto-placeholder {
   filter: brightness(1.05);
 }
@@ -3804,8 +3962,9 @@ img[loading="lazy"]:not([src]) {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background: var(--cor-verde);
-  color: var(--cor-creme);
+  background: var(--cor-branco);
+  border: 1px solid rgba(140, 50, 17, 0.24);
+  color: var(--cor-terracota);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -3975,7 +4134,7 @@ img[loading="lazy"]:not([src]) {
   margin-top: 2rem;
   border-radius: 14px;
   background: linear-gradient(120deg, #2e3a22 0%, #3d4e2d 60%, #2a3120 100%);
-  border: 1px solid rgba(168, 198, 64, 0.25);
+  border: 1px solid rgba(86, 96, 67, 0.25);
   overflow: hidden;
   position: relative;
 }
@@ -3986,7 +4145,7 @@ img[loading="lazy"]:not([src]) {
   position: absolute;
   top: -60px; right: -60px;
   width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(168,198,64,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(86,96,67,0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -4002,12 +4161,12 @@ img[loading="lazy"]:not([src]) {
 .unidade-proxima-icon {
   flex-shrink: 0;
   width: 64px; height: 64px;
-  background: rgba(168, 198, 64, 0.12);
-  border: 1px solid rgba(168, 198, 64, 0.3);
+  background: rgba(140, 50, 17, 0.12);
+  border: 1px solid rgba(140, 50, 17, 0.3);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.6rem;
-  color: var(--cor-lima);
+  color: var(--cor-terracota);
   overflow: hidden; /* garante que o SVG não vaze */
 }
 
@@ -4054,7 +4213,7 @@ img[loading="lazy"]:not([src]) {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--cor-lima);
+  color: var(--cor-verde);
   margin-bottom: 0.45rem;
 }
 
@@ -4088,8 +4247,8 @@ img[loading="lazy"]:not([src]) {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background: var(--cor-lima);
-  color: #1a2210;
+  background: var(--cor-terracota);
+  color: var(--cor-creme);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -4099,13 +4258,13 @@ img[loading="lazy"]:not([src]) {
   text-decoration: none;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
   white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(168, 198, 64, 0.28);
+  box-shadow: 0 4px 16px rgba(140, 50, 17, 0.28);
 }
 
 .btn-proxima:hover {
-  background: #bcd94a;
+  background: #A4471D;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(168, 198, 64, 0.4);
+  box-shadow: 0 8px 24px rgba(140, 50, 17, 0.4);
 }
 
 /* Responsividade do bloco próxima cidade */
@@ -4257,6 +4416,18 @@ img[loading="lazy"]:not([src]) {
   86%        { transform: rotate(-1deg)  scale(1);    }
   92%        { transform: rotate(0.5deg) scale(1);    }
   100%       { transform: rotate(0deg)   scale(1);    }
+}
+
+/* Clique para abrir WhatsApp — feedback rápido de "toque" */
+@keyframes wa-click-pop {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(0.92); }
+  70%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.whatsapp-float:active {
+  animation: wa-click-pop 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .whatsapp-float.wa-atencao {
